@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+    inputs:
+      is_migrate:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print  STDOUT 1
+        run: echo  The tags are ${{ inputs.tags }} 
+        if: ${{ inputs.is_migrate }} 
+      - name: Print  STDOUT 
+        run: echo  The tags are ${{ inputs.tags }} 
