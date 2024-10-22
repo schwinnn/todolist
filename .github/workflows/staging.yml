@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+    inputs:
+      is_migrate:
+        description: '是否执行rails db:migrate'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 第一步执行
+        run: echo  The tags are ${{ inputs.is_migrate }} 
+        if: ${{ inputs.is_migrate }} 
+      - name: 第二步执行
+        run: echo  The tags are ${{ inputs.is_migrate }} 
